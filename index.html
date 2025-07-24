@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanvi Deshmukh - Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(0,0,0,0.6);
+      transform: translateY(-100%);
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    .hero a.button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #ff416c;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+    .hero a.button:hover {
+      background: #ff4b2b;
+    }
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="https://www.linkedin.com/in/tanvi-deshmukh-150a7331b" target="_blank">LinkedIn</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Tanvi Deshmukh</h1>
+    <p>I'm an IT student passionate about Salesforce and Frontend Web Development.</p>
+    
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Currently pursuing B.E. in IT at Zeal College. Aiming to start a career in Salesforce Development.</p>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>My Projects</h2>
+    <p>Library Management System, Salesforce Approval Flow, Animated Landing Pages, and more.</p>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.to("header", { y: 0, duration: 1, ease: "power2.out" });
+    gsap.to(".hero", { opacity: 1, y: -20, duration: 1.5, ease: "power2.out", delay: 0.5 });
+    gsap.to(".button", { scale: 1.05, repeat: -1, yoyo: true, duration: 0.8, ease: "power1.inOut" });
+
+    gsap.utils.toArray(".section").forEach(section => {
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 1,
+        y: -20,
+        duration: 1,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
